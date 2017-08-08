@@ -4,8 +4,8 @@ try:
     from urllib.request import Request
 except ImportError:
     from urllib2 import Request
-from rtkit.resource import RTResource
-from rtkit.entities import *
+from .resource import RTResource
+from .entities import *
 
 
 class Tracker(RTResource):

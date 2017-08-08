@@ -6,9 +6,8 @@ try:
     from urllib.error import HTTPError
 except ImportError:
     from urllib2 import Request, HTTPError
-from rtkit import forms, errors
-from rtkit.parser import RTParser
-
+from . import forms, errors
+from .parser import RTParser
 
 class RTResource(object):
     """REST Resource Object"""
@@ -22,7 +21,7 @@ class RTResource(object):
         """
         self.auth = auth(username, password, url)
         self.response_cls = kwargs.get('response_class', RTResponse)
-        self.logger = logging.getLogger('rtkit')
+        self.logger = logging.getLogger(__name__)
 
     def get(self, path=None, headers=None):
         """GET from the server"""
@@ -83,7 +82,7 @@ class RTResponse(object):
         self.status = '{0} {1}'.format(response.code, response.msg)
         """Status String"""
 
-        self.logger = logging.getLogger('rtkit')
+        self.logger = logging.getLogger(__name__)
         """Logger"""
 
         self.logger.info(request.get_method())

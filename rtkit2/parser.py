@@ -5,7 +5,7 @@ except ImportError:
     from itertools import ifilterfalse
     from io import StringIO
 import re
-from rtkit import comment
+from . import comment
 
 
 class RTParser(object):
