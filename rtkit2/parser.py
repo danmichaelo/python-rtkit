@@ -1,8 +1,10 @@
 try:
     from itertools import filterfalse as ifilterfalse
-    from cStringIO import StringIO
 except ImportError:
     from itertools import ifilterfalse
+try:
+    from cStringIO import StringIO
+except ImportError:
     from io import StringIO
 import re
 from . import comment
